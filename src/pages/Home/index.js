@@ -112,22 +112,13 @@ export default function Home() {
 
     const content = {
         home: (
-            <>
-            <Select>
-                <button onClick={handlePrevCountry}>
-                    <MdChevronLeft size={42} color="#ccc" />
-                </button>
-                <p>{options[option].label}</p>
-                <button onClick={handleNextCountry}>
-                    <MdChevronRight size={42} color="#ccc" />
-                </button>
-            </Select>   
-            <MainCard data={covid.infectados || {}} flag={options[option].query}/>
-            <div className="list-cards">
-                <Card data={covid.ativos || {}}/>
-                <Card data={covid.recuperados || {}}/>
-                <Card data={covid.mortos || {}}/>
-            </div>
+            <>  
+                <MainCard data={covid.infectados || {}} flag={options[option].query}/>
+                <div className="list-cards">
+                    <Card data={covid.ativos || {}}/>
+                    <Card data={covid.recuperados || {}}/>
+                    <Card data={covid.mortos || {}}/>
+                </div>
             </>
         ),
         error: (
@@ -138,7 +129,15 @@ export default function Home() {
   return (
     <Container>
         <header>
- 
+            <Select>
+                <button onClick={handlePrevCountry}>
+                    <MdChevronLeft size={42} color="#ccc" />
+                </button>
+                <p>{options[option].label}</p>
+                <button onClick={handleNextCountry}>
+                    <MdChevronRight size={42} color="#ccc" />
+                </button>
+            </Select> 
         </header>
         {loading ? (
             <Loading />

@@ -11,6 +11,11 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
 
+
+    header{
+        width: 100%;
+    }
+
     .list-cards{
         width: 100%;
         display: flex;

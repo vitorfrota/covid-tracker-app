@@ -13,7 +13,7 @@ export default function MainCard({ data }) {
         <span>Última atualização:<strong> {updateDate}</strong></span>
       </div>
       <div>
-        <img src={`https://www.countryflags.io/${flag}/flat/48.png`} />
+        <img src={`https://www.countryflags.io/${flag}/flat/64.png`} />
       </div>
     </Container>
   );
