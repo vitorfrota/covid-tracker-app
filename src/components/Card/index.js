@@ -3,7 +3,7 @@ import React from 'react';
 import Chart from './Chart';
 import { Container } from './styles';
 
-export default function Card({ data, showChart=false }) {
+export default function Card({ data }) {
     const { title, amount, color="#ddd", percent=0 } = data;
 
   return (
@@ -14,10 +14,7 @@ export default function Card({ data, showChart=false }) {
         <span>Total de casos de<strong> {title}</strong></span>
       </div>
       <div>
-        {showChart ? (
-          <Chart amount={percent} color={color}/>
-        ) : null
-        }
+        <Chart amount={percent} color={color}/>  
       </div>
     </Container>
   );

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     background: #1d1e20;
-    border-radius: 1px;
+    border-radius: 5px;
     padding: 15px;
     border-left: 6px solid ${props=> props.color};
     display: flex;
@@ -12,6 +12,7 @@ export const Container = styled.div`
     justify-content: space-between;
     width: 100%;
     color: #ccc;
+    margin: 0 5px;
 
     h2{
         font-size: 12px;

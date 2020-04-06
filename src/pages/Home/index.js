@@ -4,8 +4,10 @@ import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import pt from 'date-fns/locale/pt';
 import axios from 'axios';
 
-
+import logo from '../../assets/img/logo.svg';
 import Card from '../../components/Card';
+import Error from '../../components/Error';
+import Loading from '../../components/Loading';
 import MainCard from '../../components/MainCard';
 
 import { Container, Select } from './styles';
@@ -16,11 +18,14 @@ const options = [
     { label: 'China', query: 'cn'},
     { label: 'Espanha', query: 'es'},
     { label: 'Estados Unidos', query: 'us'},
+    { label: 'França', query: 'fr'},
     { label: 'Itália', query: 'it'},
 ];
 
 export default function Home() {
     const [covid, setCovid] = useState({});
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [option, setOption] = useState(0);
 
 
@@ -42,42 +47,49 @@ export default function Home() {
 
     useEffect(()=> {
         async function getCovidCases(){
-            const { data } = await axios.get(`https://covid19.mathdro.id/api/countries/${options[option].query}`);
+            setLoading(true);
+            try{
+                const { data } = await axios.get(`https://covid19.mathdro.id/api/countries/${options[option].query}`);
 
-            let activeCases = data.confirmed.value - data.recovered.value - data.deaths.value;
-
-            setCovid(
-            { 
-                infectados: 
-                {
-                    title: 'total infectados', 
-                    amount: amountFormatted(data.confirmed.value), 
-                    flag: options[option].query,
-                    updateDate: dateFormatted(data.lastUpdate)
-                },
-                ativos: 
+                let activeCases = data.confirmed.value - data.recovered.value - data.deaths.value;
+    
+                setCovid(
+                { 
+                    infectados: 
                     {
-                        title: 'ativos', 
-                        amount: amountFormatted(activeCases), 
-                        percent: getPercentCases(data.confirmed.value, activeCases),
-                        color: '#00b8da',
+                        title: 'total infectados', 
+                        amount: amountFormatted(data.confirmed.value), 
+                        flag: options[option].query,
+                        updateDate: dateFormatted(data.lastUpdate)
                     },
-                recuperados: 
-                    {
-                        title: 'recuperados', 
-                        amount: amountFormatted(data.recovered.value), 
-                        percent: getPercentCases(data.confirmed.value, data.recovered.value),
-                        color: '#37b37f',
-                    },
-                mortos: 
-                    {
-                        title: 'fatalidades', 
-                        amount: amountFormatted(data.deaths.value), 
-                        percent: getPercentCases(data.confirmed.value, data.deaths.value),
-                        color: '#ff562f',
-                    }    
+                    ativos: 
+                        {
+                            title: 'ativos', 
+                            amount: amountFormatted(activeCases), 
+                            percent: getPercentCases(data.confirmed.value, activeCases),
+                            color: '#00b8da',
+                        },
+                    recuperados: 
+                        {
+                            title: 'recuperados', 
+                            amount: amountFormatted(data.recovered.value), 
+                            percent: getPercentCases(data.confirmed.value, data.recovered.value),
+                            color: '#37b37f',
+                        },
+                    mortos: 
+                        {
+                            title: 'fatalidades', 
+                            amount: amountFormatted(data.deaths.value), 
+                            percent: getPercentCases(data.confirmed.value, data.deaths.value),
+                            color: '#ff562f',
+                        }    
+                });
+                setLoading(false);
+                setError(false);
+            }catch(e){
+                setError(true);
+                setLoading(false);
             }
-        );
         }
         getCovidCases();
     }, [option]);
@@ -98,26 +110,41 @@ export default function Home() {
         }
     }
 
+
+    const content = {
+        home: (
+            <>
+            <Select>
+                <button onClick={handlePrevCountry}>
+                    <MdChevronLeft size={42} color="#00b8da" />
+                </button>
+                <p>{options[option].label}</p>
+                <button onClick={handleNextCountry}>
+                    <MdChevronRight size={42} color="#00b8da" />
+                </button>
+            </Select>   
+            <MainCard data={covid.infectados || {}} flag={options[option].query}/>
+            <div className="list-cards">
+                <Card data={covid.ativos || {}}/>
+                <Card data={covid.recuperados || {}}/>
+                <Card data={covid.mortos || {}}/>
+            </div>
+            </>
+        ),
+        error: (
+            <Error />
+        )
+    }
+
   return (
     <Container>
         <header>
-            <h1>Covid Tracker</h1>
+            <img src={logo} alt="logo" />
+            <h1>Covid Tracker App</h1>
         </header>
-        <Select>
-            <button onClick={handlePrevCountry}>
-                <MdChevronLeft size={42} color="#fff" />
-            </button>
-            <p>{options[option].label}</p>
-            <button onClick={handleNextCountry}>
-                <MdChevronRight size={42} color="#fff" />
-            </button>
-        </Select>
-        <MainCard data={covid.infectados || {}} flag={options[option].query}/>
-        <div className="list-cards">
-            <Card data={covid.ativos || {}} showChart/>
-            <Card data={covid.recuperados || {}} showChart/>
-            <Card data={covid.mortos || {}} showChart/>
-        </div>
+        {loading ? (
+            <Loading />
+        ) : error ? content['error'] : content['home']}
     </Container>
   );
 }

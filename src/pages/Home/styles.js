@@ -6,7 +6,7 @@ export const Container = styled.div`
     height: 100vh;
     margin: 0 auto;
     background: none;
-    padding: 20px 10px;
+    padding:10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,8 +14,18 @@ export const Container = styled.div`
     header{
         margin-bottom: 10px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+
+        img{
+            max-width: 64px;
+        }
+
+        h1{
+            font-size: 20px;
+        }
     }
 
     .list-cards{
@@ -24,6 +34,13 @@ export const Container = styled.div`
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+
+        div:first-child{
+            margin-left: 0;
+        }
+        div:last-child{
+            margin-right: 0;
+        }
 
         @media (max-width: 540px){
             width: 100%;
@@ -47,10 +64,19 @@ export const Select = styled.div`
     button{
         background: none;
         border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 150ms linear 0s;
+
+        &:hover{
+            background: RGBA(0, 184, 218, 0.05);
+        }
     }
 
     p{
-        font-size: 22px;
+        font-size: 20px;
         color: #fff;
     }
 `;

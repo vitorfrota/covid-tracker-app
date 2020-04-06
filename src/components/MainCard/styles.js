@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     background: #1d1e20;
-    border-radius: 1px;
+    border-radius: 5px;
     padding: 25px;
     margin-bottom: 10px;
     display: flex;
@@ -31,5 +31,7 @@ export const Container = styled.div`
         font-size: 12px;
     }
 
-  
+    @media (max-width: 540px){
+        margin-bottom: 5px;
+    }
 `;

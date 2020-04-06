@@ -9,13 +9,9 @@ export default function Chart({ amount=0, color="#fff" }) {
         },
         plotOptions: {
             radialBar: {
-                startAngle: -180,
-                endAngle: 180,
                 track: {
                   background: '#151515',
-                  startAngle: -180,
-                  endAngle: 180,
-                  strokeWidth: '17%',
+                  strokeWidth: '27%',
                 },
                 hollow: {
                     margin: 125,
@@ -26,7 +22,7 @@ export default function Chart({ amount=0, color="#fff" }) {
                     value: {
                         offsetY: -10,
                         color: '#a8a8a8',
-                        fontSize: '20px',
+                        fontSize: '16px',
                         fontWeight: 'bold'
                     },
                 },
