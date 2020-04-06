@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Chart from '../Chart';
+import Chart from './Chart';
 import { Container } from './styles';
 
 export default function Card({ data, showChart=false }) {

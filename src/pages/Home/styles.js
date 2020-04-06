@@ -12,14 +12,10 @@ export const Container = styled.div`
     align-items: center;
 
     header{
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        p{
-            margin-top: 5px;
-            color: #fff;
-        }
     }
 
     .list-cards{

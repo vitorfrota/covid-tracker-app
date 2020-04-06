@@ -26,7 +26,7 @@ export default function Chart({ amount=0, color="#fff" }) {
                     value: {
                         offsetY: -10,
                         color: '#a8a8a8',
-                        fontSize: '22px',
+                        fontSize: '20px',
                         fontWeight: 'bold'
                     },
                 },
