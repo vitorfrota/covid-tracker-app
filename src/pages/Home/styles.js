@@ -6,27 +6,10 @@ export const Container = styled.div`
     height: 100vh;
     margin: 0 auto;
     background: none;
-    padding:10px;
     display: flex;
+    padding: 0 10px;
     flex-direction: column;
     align-items: center;
-
-    header{
-        margin-bottom: 10px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        width: 100%;
-
-        img{
-            max-width: 64px;
-        }
-
-        h1{
-            font-size: 20px;
-        }
-    }
 
     .list-cards{
         width: 100%;
@@ -71,12 +54,12 @@ export const Select = styled.div`
         transition: all 150ms linear 0s;
 
         &:hover{
-            background: RGBA(0, 184, 218, 0.05);
+            background: RGBA(55, 179, 127, 0.05);
         }
     }
 
     p{
-        font-size: 20px;
+        font-size: 22px;
         color: #fff;
     }
 `;

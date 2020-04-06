@@ -4,7 +4,6 @@ import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import pt from 'date-fns/locale/pt';
 import axios from 'axios';
 
-import logo from '../../assets/img/logo.svg';
 import Card from '../../components/Card';
 import Error from '../../components/Error';
 import Loading from '../../components/Loading';
@@ -116,11 +115,11 @@ export default function Home() {
             <>
             <Select>
                 <button onClick={handlePrevCountry}>
-                    <MdChevronLeft size={42} color="#00b8da" />
+                    <MdChevronLeft size={42} color="#ccc" />
                 </button>
                 <p>{options[option].label}</p>
                 <button onClick={handleNextCountry}>
-                    <MdChevronRight size={42} color="#00b8da" />
+                    <MdChevronRight size={42} color="#ccc" />
                 </button>
             </Select>   
             <MainCard data={covid.infectados || {}} flag={options[option].query}/>
@@ -139,8 +138,7 @@ export default function Home() {
   return (
     <Container>
         <header>
-            <img src={logo} alt="logo" />
-            <h1>Covid Tracker App</h1>
+ 
         </header>
         {loading ? (
             <Loading />
