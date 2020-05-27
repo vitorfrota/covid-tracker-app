@@ -20,7 +20,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    padding: 5px 15px;
+    padding: 100px 15px;
     margin: 0 5px;
 
     .dot{

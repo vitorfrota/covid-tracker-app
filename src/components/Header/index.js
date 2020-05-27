@@ -9,7 +9,7 @@ export default function Header() {
     <Container>
       <div className="content">
         <img src={logo} alt="logo" />
-        <h1>Covid Tracker App</h1>
+        <h1>Covid Tracker</h1>
       </div>
     </Container>
   );

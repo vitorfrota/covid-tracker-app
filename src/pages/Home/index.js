@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import pt from 'date-fns/locale/pt';
 import axios from 'axios';
 
@@ -131,11 +131,11 @@ export default function Home() {
         <header>
             <Select>
                 <button onClick={handlePrevCountry}>
-                    <MdChevronLeft size={42} color="#ccc" />
+                    <FaArrowLeft size={24} />
                 </button>
                 <p>{options[option].label}</p>
                 <button onClick={handleNextCountry}>
-                    <MdChevronRight size={42} color="#ccc" />
+                    <FaArrowRight size={24} />
                 </button>
             </Select> 
         </header>

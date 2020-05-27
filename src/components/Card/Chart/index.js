@@ -1,7 +1,7 @@
 import React from 'react';
 import ChartApex from 'react-apexcharts';
 
-export default function Chart({ amount=0, color="#fff" }) {
+export default function Chart({ amount=0 }) {
 
     var options = {
         chart: {
@@ -29,7 +29,7 @@ export default function Chart({ amount=0, color="#fff" }) {
             }
         },
         fill: {
-            colors: [`${color}`],
+            colors: ['#f7b03e'],
           },
         stroke: {
             lineCap: "round",

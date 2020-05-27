@@ -4,16 +4,16 @@ import styled from 'styled-components';
 export const Container = styled.div`
     background: #1d1e20;
     border-radius: 5px;
-    padding: 5px 15px;
-    border-left: 6px solid ${props=> props.color};
+    padding: 0 10px;
+    padding-left: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     color: #ccc;
-    margin: 0 5px;
-
+    margin: 0 4px;
+    
     h2{
         font-size: 12px;
         color: #8a8a8a;
@@ -22,7 +22,7 @@ export const Container = styled.div`
 
     p{
         font-size: 26px;
-        color: ${props=> props.color};
+        color: #ccc;
         margin-top: 7px;
         font-weight: bold;
     }

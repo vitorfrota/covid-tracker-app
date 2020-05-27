@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import background from '../assets/img/worldmap_background.svg';
+
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 *{
@@ -9,11 +11,17 @@ export default createGlobalStyle`
   box-sizing: border-box;
 }
 body{
-  background: #151515;
+  background: #1e1e1e url(${background}) no-repeat;
+  background-size: 100% auto;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
+
+  @media(max-width: 768px){
+    background: #151515;
+  }
 }
 body, input, button{
-  font: 14px Montserrat, sans-serif;
+  font: 16px Montserrat, sans-serif;
 }
 h1{
   color: #fff;

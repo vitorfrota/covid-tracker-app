@@ -1,16 +1,15 @@
 import styled from 'styled-components';
-
+import { shade } from 'polished';
 
 export const Container = styled.div`
     max-width: 1110px;
-    height: 100vh;
-    margin: 0 auto;
-    background: none;
+    margin: 70px auto;
+    background: rgba(10,10,10,0.7);
     display: flex;
-    padding: 0 10px;
+    padding: 20px;
     flex-direction: column;
     align-items: center;
-
+    border-radius: 10px;
 
     header{
         width: 100%;
@@ -22,22 +21,15 @@ export const Container = styled.div`
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-
-        div:first-child{
-            margin-left: 0;
-        }
-        div:last-child{
-            margin-right: 0;
-        }
-
-        @media (max-width: 540px){
-            width: 100%;
-            flex-direction: column;
-        }
     }
 
     @media (max-width: 540px){
         width: 100%;
+        background: none;
+        margin: 0;
+        .list-cards{
+            flex-direction: column;
+        }
     }
 `;
 
@@ -47,8 +39,7 @@ export const Select = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
-
+    margin-bottom: 40px;
     button{
         background: none;
         border: none;
@@ -56,15 +47,22 @@ export const Select = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 150ms linear 0s;
+        transition: all 200ms linear 0s;
 
-        &:hover{
-            background: RGBA(55, 179, 127, 0.05);
+        svg{
+            fill: #f7b03e;
+            transition: all 200ms linear 0s;
+        }
+
+        &:hover svg{
+            fill: ${shade(0.2 , '#f7b03e')};
         }
     }
 
     p{
-        font-size: 22px;
-        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        color: #ddd;
+        text-transform: uppercase;
     }
 `;
