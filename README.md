@@ -1,6 +1,13 @@
 ## Descrição
 
-Este projeto exibe as informações de casos de COVID nos países.
+Este projeto exibe as informações de casos de COVID dos seguintes países:
+
+🏳 Brasil
+🏳 China
+🏳 Espanha
+🏳 Estados Unidos
+🏳 França
+🏳 Itália
 
 ### Teste
 
