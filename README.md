@@ -1,6 +1,12 @@
+<h2 align="center">
+<img src="src/assets/img/logo.svg">
+<br/>
+</h2>
+<hr/>
+
 ## Descrição
 
-Este projeto exibe as informações de casos de COVID dos seguintes países:
+Projeto desenvolvido com ReactJS para utilizar os conhecimentos adquiridos durante o bootcamp da Rocketseat. A aplicação exibe o número de casos de COVID-19 dos seguintes países: 
 
 * 🏳 Brasil
 * 🏳 China
